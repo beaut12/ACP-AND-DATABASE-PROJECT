@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+    <div class="left">
+        <img src="{{ url_for('static', filename='biglogo.png') }}"
+             alt="Ending Hunger Plate"
+             class="big-plate">
+    </div>
+
+    <div class="right">
+
+        <h1>
+            BE PART OF THE JOURNEY<br>
+            THAT GOES BEYOND
+        </h1>
+
+        <div class="form-card">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="error-box">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('auth.login') }}">
+
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="main-btn">
+                    Log in
+                </button>
+
+            </form>
+
+            <p class="switch">
+                Don’t have an account?
+                <a href="{{ url_for('views.signup') }}">Sign up</a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

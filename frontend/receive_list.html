@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Find <strong>food donations</strong> ready for pickup near you.</h1>
+
+<table class="donation-table">
+    <tr>
+        <th>REF ID</th>
+        <th>NAME OF FOOD</th>
+        <th>STATUS</th>
+        <th>QUANTITY</th>
+        <th>EXP DATE</th>
+        <th>ACTION</th>
+    </tr>
+
+    {% for x in donations %}
+    <tr>
+        <td>{{ x.ref_id }}</td>
+        <td>{{ x.food_name }}</td>
+        <td>{{ x.status }}</td>
+        <td>{{ x.quantity }}</td>
+        <td>{{ x.expiration }}</td>
+        <td><a href="{{ url_for('views.receive', ref_id=x.ref_id) }}">VIEW</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

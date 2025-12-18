@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">
+
+    <h1>Welcome, {{ current_user.fullname }}!</h1>
+
+    <div class="actions-row">
+
+        <div class="action-card">
+            <img src="{{ url_for('static', filename='donate.png') }}"
+                 alt="Donate meals">
+            <a class="btn yellow" href="{{ url_for('views.donate') }}">
+                Donate
+            </a>
+        </div>
+
+        <div class="action-card">
+            <img src="{{ url_for('static', filename='receive.png') }}"
+                 alt="Receive meals">
+            <a class="btn yellow" href="{{ url_for('views.receive') }}">
+                Receive
+            </a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+

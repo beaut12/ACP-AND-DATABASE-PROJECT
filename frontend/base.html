@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beyond Zero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="nav">
+
+    <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+
+    {% if current_user.is_authenticated %}
+    <div class="nav-buttons">
+
+        <a href="{{ url_for('views.dashboard') }}" class="btn yellow">Home</a>
+        <a href="{{ url_for('views.about') }}" class="btn yellow">About</a>
+
+        <div class="profile-container">
+            <div class="profile-btn">
+                {{ current_user.fullname }}
+            </div>
+
+            <div class="profile-dropdown">
+                <div class="profile-header">
+                    <span class="profile-name">{{ current_user.fullname }}</span>
+                </div>
+
+                <a href="{{ url_for('views.profile') }}">Profile</a>
+                <a href="{{ url_for('auth.logout') }}">Log out</a>
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+
+</header>
+
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+<footer class="footer">
+    © 2025 BeyondZero. All rights reserved.
+</footer>
+
+</body>
+</html>

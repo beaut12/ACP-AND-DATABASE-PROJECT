@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="donate-wrapper">
+
+<form method="POST" action="/donate">
+
+    <h1 class="donate-title">
+        Your <span>kindness</span> today can make a real difference for others.
+    </h1>
+
+    <div class="donate-two-columns">
+
+        <div class="donate-card">
+            <div class="donate-card-header">FOOD DONATION DETAILS</div>
+
+            <div class="donate-form">
+
+                <label class="donate-label">TYPE OF FOOD:</label>
+                <div class="donate-radio-group">
+                    <label><input type="radio" name="food_type" value="Cooked Meals"> Cooked Meals</label>
+                    <label><input type="radio" name="food_type" value="Groceries"> Groceries</label>
+                    <label><input type="radio" name="food_type" value="Drinks"> Drinks</label>
+                    <label><input type="radio" name="food_type" value="Bread & Pastries"> Bread & Pastries</label>
+                    <label><input type="radio" name="food_type" value="Fresh Produce"> Fresh Produce</label>
+                </div>
+
+                <label class="donate-label">NAME OF FOOD:</label>
+                <input type="text" name="food_name" class="donate-input">
+
+                <label class="donate-label">STATUS:</label>
+                <div class="donate-radio-group">
+                    <label><input type="radio" name="status" value="Expires Soon"> Expires Soon</label>
+                    <label><input type="radio" name="status" value="Partner Restaurants"> Partner Restaurants</label>
+                    <label><input type="radio" name="status" value="From Trusted Donors"> From Trusted Donors</label>
+                    <label><input type="radio" name="status" value="Failed Deliveries"> Failed Deliveries</label>
+                </div>
+
+                <label class="donate-label">QUANTITY:</label>
+                <input type="number" name="quantity" class="donate-input">
+
+                <label class="donate-label">EXPIRATION DATE:</label>
+                <input type="date" name="expiration" class="donate-input">
+
+            </div>
+        </div>
+
+        <div class="donate-card">
+            <div class="donate-card-header">LOGISTIC DETAILS</div>
+
+            <div class="donate-form">
+
+                <label class="donate-label">DONOR NAME / COMPANY NAME:</label>
+                <input type="text" name="donor_name" class="donate-input">
+
+                <label class="donate-label">CONTACT INFORMATION:</label>
+                <input type="text" name="contact" class="donate-input">
+
+                <label class="donate-label">DELIVERY METHOD:</label>
+                <div class="donate-radio-group">
+                    <label><input type="radio" name="delivery" value="Drop Off"> Drop Off</label>
+                    <label><input type="radio" name="delivery" value="Pick-Up"> Pick-Up</label>
+                </div>
+
+                <label class="donate-label">LOCATION:</label>
+                <input type="text" name="location" class="donate-input">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="donate-button-container">
+        <button type="submit" class="donate-submit-btn">DONATE</button>
+    </div>
+
+</form>
+
+</div>
+
+{% endblock %}
